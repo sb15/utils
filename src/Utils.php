@@ -37,7 +37,12 @@ class Utils
             $replacement = array("strtoupper('\\2')","strtoupper('\\1')");
         }
 
-        return lcfirst(preg_replace($matchPattern, $replacement, $value));
+        return preg_replace($matchPattern, $replacement, $value);
+    }
+
+    public static function wordUnderscoreToCamelCaseFirstLower($value)
+    {
+        return lcfirst(self::wordUnderscoreToCamelCase($value));
     }
 
 }
