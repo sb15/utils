@@ -107,10 +107,11 @@ class Utils
     /**
      * @deprecated use DateUtils::getDate
      * @param null $now
+     * @return string
      */
     public static function getDate($now = null)
     {
-        DateUtils::getDate($now);
+        return DateUtils::getDate($now);
     }
     
     public static function pluralRu($number, $titles)
