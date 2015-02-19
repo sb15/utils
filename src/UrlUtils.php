@@ -96,4 +96,20 @@ class UrlUtils
             .((isset($parse_url['fragment'])) ? '#' . $parse_url['fragment'] : '')
             ;
     }
+
+    public function getSlug($name)
+    {
+        $name = str_replace(" ", "-", $name);
+        $name = preg_replace("#[^\-a-z]#uis", "", $name);
+        $name = preg_replace("#[\-]{2,}#uis", "-", $name);
+        return mb_strtolower($name, "UTF-8");
+    }
+
+    public function getSlugRu($name)
+    {
+        $name = str_replace(" ", "-", $name);
+        $name = preg_replace("#[^\-a-zа-яёЁ]#uis", "", $name);
+        $name = preg_replace("#[\-]{2,}#uis", "-", $name);
+        return mb_strtolower($name, "UTF-8");
+    }
 }
