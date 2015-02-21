@@ -102,6 +102,7 @@ class UrlUtils
         $name = str_replace(" ", "-", $name);
         $name = preg_replace("#[^\-a-z]#uis", "", $name);
         $name = preg_replace("#[\-]{2,}#uis", "-", $name);
+        $name = trim($name, "- \t\n\r\0\x0B");
         return mb_strtolower($name, "UTF-8");
     }
 
@@ -110,6 +111,7 @@ class UrlUtils
         $name = str_replace(" ", "-", $name);
         $name = preg_replace("#[^\-a-zа-яёЁ]#uis", "", $name);
         $name = preg_replace("#[\-]{2,}#uis", "-", $name);
+        $name = trim($name, "- \t\n\r\0\x0B");
         return mb_strtolower($name, "UTF-8");
     }
 }
