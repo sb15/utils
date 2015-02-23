@@ -97,7 +97,7 @@ class UrlUtils
             ;
     }
 
-    public function getSlug($name)
+    public static function getSlug($name)
     {
         $name = str_replace(" ", "-", $name);
         $name = preg_replace("#[^\-a-z]#uis", "", $name);
@@ -106,7 +106,7 @@ class UrlUtils
         return mb_strtolower($name, "UTF-8");
     }
 
-    public function getSlugRu($name)
+    public static function getSlugRu($name)
     {
         $name = str_replace(" ", "-", $name);
         $name = preg_replace("#[^\-a-zа-яёЁ]#uis", "", $name);
