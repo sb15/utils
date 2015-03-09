@@ -22,27 +22,24 @@ class Utils
         return $result;
     }
 
+    /**
+     * @deprecated use \Phalcon\Text
+     * @param $value
+     * @return string
+     */
     public static function wordUnderscoreToCamelCase($value)
     {
-        $separator = '_';
-        $isUnicodeSupportEnabled = (@preg_match('/\pL/u', 'a')) ? true : false;
-
-        $pregQuotedSeparator = preg_quote($separator, '#');
-
-        if ($isUnicodeSupportEnabled) {
-            $matchPattern = array('#('.$pregQuotedSeparator.')(\p{L}{1})#e','#(^\p{Ll}{1})#e');
-            $replacement = array("strtoupper('\\2')","strtoupper('\\1')");
-        } else {
-            $matchPattern = array('#('.$pregQuotedSeparator.')([A-Za-z]{1})#e','#(^[A-Za-z]{1})#e');
-            $replacement = array("strtoupper('\\2')","strtoupper('\\1')");
-        }
-
-        return preg_replace($matchPattern, $replacement, $value);
+        return \Phalcon\Text::camelize($value);
     }
 
+    /**
+     * @deprecated use lcfirst(\Phalcon\Text::camelize())
+     * @param $value
+     * @return string
+     */
     public static function wordUnderscoreToCamelCaseFirstLower($value)
     {
-        return lcfirst(self::wordUnderscoreToCamelCase($value));
+        return lcfirst(\Phalcon\Text::camelize($value));
     }
 
     public static function comparePhrase($phrase1, $phrase2)
