@@ -24,7 +24,7 @@ class TextUtils
         return str_replace($from, $to, $text);
     }
     
-    public function getShortDescription($description, $limit = 3)
+    public static function getShortDescription($description, $limit = 3)
     {
         $descriptionArray = explode(".", trim(strip_tags($description)));
         $descriptionShort = array();
