@@ -40,4 +40,14 @@ class TextUtils
         }
         return $descriptionShortText;
     }
+
+    public static function toJsUnicode($text)
+    {
+        $output = "";
+        $utf16 = mb_convert_encoding($text, 'UTF-16BE');
+        for ($i= 0; $i < strlen($utf16); $i+= 2) {
+            $output.= '\\u'.str_pad(dechex((ord($utf16{$i}) << 8) + ord($utf16{$i+1})), 4, '0', STR_PAD_LEFT);
+        }
+        return $output;
+    }
 }
