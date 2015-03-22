@@ -114,4 +114,12 @@ class UrlUtils
         $name = trim($name, "- \t\n\r\0\x0B");
         return mb_strtolower($name, "UTF-8");
     }
+
+    public static function base64encode($s) {
+        return str_replace(array('+', '/'), array('-', '_'), base64_encode($s));
+    }
+
+    public static function base64decode($s) {
+        return base64_decode(str_replace(array('-', '_'), array('+', '/'), $s));
+    }
 }
