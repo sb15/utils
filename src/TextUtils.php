@@ -50,4 +50,11 @@ class TextUtils
         }
         return $output;
     }
+
+    public static function trim($value)
+    {
+        $value = str_replace(" ", " ", $value);
+        $value = trim($value);
+        return $value;
+    }
 }
