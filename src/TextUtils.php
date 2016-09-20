@@ -57,4 +57,9 @@ class TextUtils
         $value = trim($value);
         return $value;
     }
+
+    public static function ucFirst($str)
+    {
+        return mb_strtoupper(mb_substr($str, 0, 1, 'UTF-8'), 'UTF-8') . mb_substr($str, 1, 'UTF-8');
+    }
 }
